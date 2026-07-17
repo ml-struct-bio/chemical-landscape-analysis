@@ -1,0 +1,116 @@
+Real vs. synthetic spectra embedding-gap report
+========================================================================
+
+gap ratio = mean(paired real-vs-syn distance) / mean(background mismatched-pair distance). << 1 means the model still tightly recognizes molecular identity despite the spectra-source switch; values approaching or exceeding 1 mean spectra source rivals molecular identity as a driver of the embedding.
+
+--- real-fda-cdcl3_vs_syn-fda (n=4, alignment=canonical_smiles) ---
+  mean paired Euclidean distance      : 0.9629 (median 1.0422)
+  mean background Euclidean distance  : 2.0986
+  gap ratio (paired / background)     : 0.459
+  mean paired cosine similarity        : 0.9992
+  mean background cosine similarity    : 0.9953
+  cosine similarity gap (paired-bg)    : 0.0039
+  identity retrieval real→syn  top1/top5: 0.750 / 1.000
+  identity retrieval syn→real  top1/top5: 1.000 / 1.000
+  corr(paired distance, MolWt): r=0.076, p=0.924
+  corr(paired distance, LogP): r=-0.696, p=0.304
+  corr(paired distance, TPSA): r=0.404, p=0.596
+  corr(paired distance, RingCount): r=0.504, p=0.496
+  corr(paired distance, Aromaticity): r=0.073, p=0.927
+
+--- real-fda-dmso_vs_syn-fda (n=9, alignment=canonical_smiles) ---
+  mean paired Euclidean distance      : 1.3137 (median 0.9205)
+  mean background Euclidean distance  : 3.0902
+  gap ratio (paired / background)     : 0.425
+  mean paired cosine similarity        : 0.9963
+  mean background cosine similarity    : 0.9862
+  cosine similarity gap (paired-bg)    : 0.0102
+  identity retrieval real→syn  top1/top5: 0.667 / 0.889
+  identity retrieval syn→real  top1/top5: 0.778 / 1.000
+  corr(paired distance, MolWt): r=-0.343, p=0.366
+  corr(paired distance, LogP): r=-0.752, p=0.0194
+  corr(paired distance, TPSA): r=0.491, p=0.179
+  corr(paired distance, RingCount): r=-0.086, p=0.826
+  corr(paired distance, Aromaticity): r=-0.328, p=0.389
+
+--- real-5mer-d2o_vs_syn-5mer (n=19, alignment=canonical_smiles) ---
+  mean paired Euclidean distance      : 5.4156 (median 5.6633)
+  mean background Euclidean distance  : 5.7600
+  gap ratio (paired / background)     : 0.940
+  mean paired cosine similarity        : 0.9858
+  mean background cosine similarity    : 0.9835
+  cosine similarity gap (paired-bg)    : 0.0023
+  identity retrieval real→syn  top1/top5: 0.053 / 0.368
+  identity retrieval syn→real  top1/top5: 0.053 / 0.316
+  corr(paired distance, MolWt): r=0.244, p=0.314
+  corr(paired distance, LogP): r=0.413, p=0.0785
+  corr(paired distance, TPSA): r=0.107, p=0.664
+  corr(paired distance, RingCount): r=0.390, p=0.0992
+  corr(paired distance, Aromaticity): r=0.172, p=0.48
+
+--- real-5mer-dmso_vs_syn-5mer (n=19, alignment=canonical_smiles) ---
+  mean paired Euclidean distance      : 2.5065 (median 2.3999)
+  mean background Euclidean distance  : 3.2204
+  gap ratio (paired / background)     : 0.778
+  mean paired cosine similarity        : 0.9966
+  mean background cosine similarity    : 0.9937
+  cosine similarity gap (paired-bg)    : 0.0029
+  identity retrieval real→syn  top1/top5: 0.105 / 0.421
+  identity retrieval syn→real  top1/top5: 0.105 / 0.316
+  corr(paired distance, MolWt): r=0.589, p=0.00792
+  corr(paired distance, LogP): r=0.206, p=0.397
+  corr(paired distance, TPSA): r=0.532, p=0.0192
+  corr(paired distance, RingCount): r=0.408, p=0.0831
+  corr(paired distance, Aromaticity): r=0.347, p=0.145
+
+--- real-np-mo_vs_syn-np-mo (n=7, alignment=canonical_smiles) ---
+  mean paired Euclidean distance      : 2.8793 (median 2.5322)
+  mean background Euclidean distance  : 5.6638
+  gap ratio (paired / background)     : 0.508
+  mean paired cosine similarity        : 0.9945
+  mean background cosine similarity    : 0.9709
+  cosine similarity gap (paired-bg)    : 0.0237
+  identity retrieval real→syn  top1/top5: 0.286 / 1.000
+  identity retrieval syn→real  top1/top5: 0.286 / 1.000
+  corr(paired distance, MolWt): r=-0.295, p=0.521
+  corr(paired distance, LogP): r=-0.103, p=0.826
+  corr(paired distance, TPSA): r=-0.345, p=0.449
+  corr(paired distance, RingCount): r=-0.208, p=0.655
+  corr(paired distance, Aromaticity): r=0.657, p=0.109
+
+--- real-npmrd-hq_vs_syn-npmrd-hq (n=191, alignment=canonical_smiles) ---
+  mean paired Euclidean distance      : 2.7746 (median 2.2252)
+  mean background Euclidean distance  : 4.4574
+  gap ratio (paired / background)     : 0.622
+  mean paired cosine similarity        : 0.9860
+  mean background cosine similarity    : 0.9653
+  cosine similarity gap (paired-bg)    : 0.0207
+  identity retrieval real→syn  top1/top5: 0.105 / 0.230
+  identity retrieval syn→real  top1/top5: 0.094 / 0.209
+  corr(paired distance, MolWt): r=-0.251, p=0.00047
+  corr(paired distance, LogP): r=-0.080, p=0.271
+  corr(paired distance, TPSA): r=-0.119, p=0.102
+  corr(paired distance, RingCount): r=-0.088, p=0.226
+  corr(paired distance, Aromaticity): r=0.045, p=0.538
+
+--- real-specteach_vs_syn-specteach (n=219, alignment=canonical_smiles) ---
+  mean paired Euclidean distance      : 2.1072 (median 1.4324)
+  mean background Euclidean distance  : 3.6560
+  gap ratio (paired / background)     : 0.576
+  mean paired cosine similarity        : 0.9876
+  mean background cosine similarity    : 0.9706
+  cosine similarity gap (paired-bg)    : 0.0170
+  identity retrieval real→syn  top1/top5: 0.210 / 0.365
+  identity retrieval syn→real  top1/top5: 0.219 / 0.356
+  corr(paired distance, MolWt): r=0.067, p=0.324
+  corr(paired distance, LogP): r=-0.027, p=0.688
+  corr(paired distance, TPSA): r=0.101, p=0.138
+  corr(paired distance, RingCount): r=0.000, p=0.997
+  corr(paired distance, Aromaticity): r=-0.089, p=0.188
+
+--- POOLED across all pairs ---
+  mean paired Euclidean distance     : 2.5166
+  mean background Euclidean distance : 4.0058
+  gap ratio (paired / background)    : 0.628
+  mean top1 real→syn retrieval accuracy (unweighted across pairs): 0.311
+  mean top1 syn→real retrieval accuracy (unweighted across pairs): 0.362

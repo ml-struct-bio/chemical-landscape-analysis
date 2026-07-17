@@ -1,0 +1,39 @@
+Real vs. synthetic spectra: UMAP-context shift summary
+========================================================================
+
+gap ratio = mean(paired real<->syn distance) / mean(background mismatched-pair distance), both computed in the ORIGINAL high-dim embedding space (not the 2D UMAP projection, which can distort distances). See real_vs_synthetic_gap.py for the full statistical breakdown (retrieval accuracy, property correlations, etc).
+
+--- real-fda-cdcl3_vs_syn-fda (n=4, alignment=canonical_smiles) ---
+  mean paired distance     : 0.9629
+  mean background distance : 2.0986
+  gap ratio                : 0.459
+
+--- real-fda-dmso_vs_syn-fda (n=9, alignment=canonical_smiles) ---
+  mean paired distance     : 1.3137
+  mean background distance : 3.0902
+  gap ratio                : 0.425
+
+--- real-5mer-d2o_vs_syn-5mer (n=19, alignment=canonical_smiles) ---
+  mean paired distance     : 5.4156
+  mean background distance : 5.7600
+  gap ratio                : 0.940
+
+--- real-5mer-dmso_vs_syn-5mer (n=19, alignment=canonical_smiles) ---
+  mean paired distance     : 2.5065
+  mean background distance : 3.2204
+  gap ratio                : 0.778
+
+--- real-np-mo_vs_syn-np-mo (n=7, alignment=canonical_smiles) ---
+  mean paired distance     : 2.8793
+  mean background distance : 5.6638
+  gap ratio                : 0.508
+
+--- real-npmrd-hq_vs_syn-npmrd-hq (n=191, alignment=canonical_smiles) ---
+  mean paired distance     : 2.7746
+  mean background distance : 4.4574
+  gap ratio                : 0.622
+
+--- real-specteach_vs_syn-specteach (n=219, alignment=canonical_smiles) ---
+  mean paired distance     : 2.1072
+  mean background distance : 3.6560
+  gap ratio                : 0.576

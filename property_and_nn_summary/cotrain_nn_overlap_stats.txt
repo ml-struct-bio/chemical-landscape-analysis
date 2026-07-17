@@ -1,0 +1,32 @@
+ECFP (Tanimoto) vs. global_cond (cosine) nearest-neighbor overlap
+========================================================================
+
+For each group: Pearson/Spearman correlation between pairwise ECFP Tanimoto similarity and pairwise embedding cosine similarity, plus top-k neighbor-set overlap (fraction of a molecule's top-k ECFP neighbors that are also top-k embedding neighbors, averaged over all molecules in the sampled group).
+
+--- nmrexp (n=3000) ---
+  Pearson r  (Tanimoto vs. cosine similarity): 0.1895
+  Spearman rho                               : 0.1987
+  Top-5 neighbor-set overlap                : 0.0259
+  Top-10 neighbor-set overlap                : 0.0311
+  Top-25 neighbor-set overlap                : 0.0403
+
+--- spectranp (n=3000) ---
+  Pearson r  (Tanimoto vs. cosine similarity): 0.2528
+  Spearman rho                               : 0.2901
+  Top-5 neighbor-set overlap                : 0.1089
+  Top-10 neighbor-set overlap                : 0.1159
+  Top-25 neighbor-set overlap                : 0.1300
+
+--- uspto (n=3000) ---
+  Pearson r  (Tanimoto vs. cosine similarity): 0.2024
+  Spearman rho                               : 0.2325
+  Top-5 neighbor-set overlap                : 0.0352
+  Top-10 neighbor-set overlap                : 0.0420
+  Top-25 neighbor-set overlap                : 0.0564
+
+--- cotrain (n=3000) ---
+  Pearson r  (Tanimoto vs. cosine similarity): 0.2575
+  Spearman rho                               : 0.3024
+  Top-5 neighbor-set overlap                : 0.0542
+  Top-10 neighbor-set overlap                : 0.0626
+  Top-25 neighbor-set overlap                : 0.0774

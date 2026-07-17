@@ -1,0 +1,14 @@
+{
+  "data_dir": "/scratch/gpfs/ZHONGE/jc4587/nmr_embs_FINAL",
+  "prefix": "cotrain",
+  "splits": [
+    "train"
+  ],
+  "n_total_molecules": 2263104,
+  "n_cluster_sample": 10000,
+  "butina_cutoff": 0.7,
+  "n_clusters": 3610,
+  "ecfp_radius": 2,
+  "ecfp_nbits": 2048,
+  "seed": 1234
+}

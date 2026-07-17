@@ -1,0 +1,253 @@
+/home/jc4587/3_AI4chemistr/FINAL/6a_real_v_synthetic_umap.py:229: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  d = torch.load(path, map_location="cpu")
+/home/jc4587/.conda/envs/nmr3d/lib/python3.11/site-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/home/jc4587/.conda/envs/nmr3d/lib/python3.11/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+OMP: Info #276: omp_set_nested routine deprecated, please use omp_set_max_active_levels instead.
+/home/jc4587/.conda/envs/nmr3d/lib/python3.11/site-packages/umap/spectral.py:548: UserWarning: Spectral initialisation failed! The eigenvector solver
+failed. This is likely due to too small an eigengap. Consider
+adding some noise or jitter to your data.
+
+Falling back to random initialisation!
+  warn(
+==============================================================================
+Real vs. synthetic spectra: UMAP-context visualization
+  ckpt   : /projects/CRYOEM/zhonglab/data_nmr/2026/ckpts/26-05-01-cotraining-baselines/cotrain-epoch0899-accuracy60_70.ckpt
+  sigma  : 2.8268
+  pairs  : [('real-fda-cdcl3', 'syn-fda'), ('real-fda-dmso', 'syn-fda'), ('real-5mer-d2o', 'syn-5mer'), ('real-5mer-dmso', 'syn-5mer'), ('real-np-mo', 'syn-np-mo'), ('real-npmrd-hq', 'syn-npmrd-hq'), ('real-specteach', 'syn-specteach')]
+==============================================================================
+Loading cotrain background: /scratch/gpfs/ZHONGE/jc4587/nmr_embs_FINAL/cotrain_train_global_cond.pt ...
+Fitting StandardScaler on 2263104 points (768 dims)...
+Fitting PCA (50 components)...
+  PCA(50) explains 82.3% of variance
+Fitting UMAP on PCA-reduced background (2263104 points, n_neighbors=30, min_dist=0.1, metric=cosine) ...
+score_model_args[DiffusionModuleTransformer].in_atom_feature_size: {14}
+score_model_args[DiffusionModuleTransformer].max_n_atoms: {306}
+generate_atom_types: False
+embedder_args.condition: H1C13NMRSpectrum
+embedder_args.input_dims: {'h_vector': 0, 'c_vector': 0, 'h_peak_centroid': 1, 'h_peak_nH': 1, 'h_peak_width': 1, 'h_peak_multiplet': 9, 'c_peak_centroid': 1}
+embedder_args.drop_transform: {'h_vector': {'type': 'zero'}, 'c_vector': {'type': 'zero'}, 'h_peak_mask': {'type': 'zero'}, 'c_peak_mask': {'type': 'zero'}}
+DiffusionModuleTransformer initialized weights.
+NMRTo3DStructureElucidation.dtype: torch.float32
+
+### real-fda-cdcl3_vs_syn-fda ###
+## Preparing data for real-fda-cdcl3
+## Data configs:
+### remove_stereo: False
+### condition: H1C13NMRSpectrum
+### known_atoms: True
+### max_n_h1spectra: 1
+### max_n_c13spectra: 1
+### max_n_conformers: 1
+### Source real-fda-cdcl3: train=0, val=0, test=4, weight=1.0, sigma_data=2.8, max_n_atoms=49
+### Spectra keys used in input generator: ['h_peak_centroid', 'h_peak_nH', 'h_peak_multiplet', 'h_peak_mask', 'c_peak_centroid', 'c_peak_mask']
+### len(test_subset): 4
+    forward pass (test):   0%|          | 0/1 [00:00<?, ?it/s]    forward pass (test): 100%|██████████| 1/1 [00:04<00:00,  4.08s/it]    forward pass (test): 100%|██████████| 1/1 [00:04<00:00,  4.27s/it]
+## Preparing data for syn-fda
+## Data configs:
+### remove_stereo: False
+### condition: H1C13NMRSpectrum
+### known_atoms: True
+### max_n_h1spectra: 1
+### max_n_c13spectra: 1
+### max_n_conformers: 1
+### Source syn-fda: train=0, val=0, test=9, weight=1.0, sigma_data=2.83, max_n_atoms=76
+### Spectra keys used in input generator: ['h_peak_centroid', 'h_peak_nH', 'h_peak_multiplet', 'h_peak_mask', 'c_peak_centroid', 'c_peak_mask']
+### len(test_subset): 9
+    forward pass (test):   0%|          | 0/1 [00:00<?, ?it/s]    forward pass (test): 100%|██████████| 1/1 [00:00<00:00,  1.38it/s]    forward pass (test): 100%|██████████| 1/1 [00:01<00:00,  1.07s/it]
+/home/jc4587/.conda/envs/nmr3d/lib/python3.11/site-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/home/jc4587/.conda/envs/nmr3d/lib/python3.11/site-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+### real-fda-dmso_vs_syn-fda ###
+## Preparing data for real-fda-dmso
+## Data configs:
+### remove_stereo: False
+### condition: H1C13NMRSpectrum
+### known_atoms: True
+### max_n_h1spectra: 1
+### max_n_c13spectra: 1
+### max_n_conformers: 1
+### Source real-fda-dmso: train=0, val=0, test=9, weight=1.0, sigma_data=2.83, max_n_atoms=76
+### Spectra keys used in input generator: ['h_peak_centroid', 'h_peak_nH', 'h_peak_multiplet', 'h_peak_mask', 'c_peak_centroid', 'c_peak_mask']
+### len(test_subset): 9
+    forward pass (test):   0%|          | 0/1 [00:00<?, ?it/s]    forward pass (test): 100%|██████████| 1/1 [00:00<00:00,  1.15it/s]    forward pass (test): 100%|██████████| 1/1 [00:01<00:00,  1.18s/it]
+## Preparing data for syn-fda
+## Data configs:
+### remove_stereo: False
+### condition: H1C13NMRSpectrum
+### known_atoms: True
+### max_n_h1spectra: 1
+### max_n_c13spectra: 1
+### max_n_conformers: 1
+### Source syn-fda: train=0, val=0, test=9, weight=1.0, sigma_data=2.83, max_n_atoms=76
+### Spectra keys used in input generator: ['h_peak_centroid', 'h_peak_nH', 'h_peak_multiplet', 'h_peak_mask', 'c_peak_centroid', 'c_peak_mask']
+### len(test_subset): 9
+    forward pass (test):   0%|          | 0/1 [00:00<?, ?it/s]    forward pass (test): 100%|██████████| 1/1 [00:00<00:00,  1.17it/s]    forward pass (test): 100%|██████████| 1/1 [00:01<00:00,  1.27s/it]
+/home/jc4587/.conda/envs/nmr3d/lib/python3.11/site-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/home/jc4587/.conda/envs/nmr3d/lib/python3.11/site-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+### real-5mer-d2o_vs_syn-5mer ###
+## Preparing data for real-5mer-D2O
+## Data configs:
+### remove_stereo: False
+### condition: H1C13NMRSpectrum
+### known_atoms: True
+### max_n_h1spectra: 1
+### max_n_c13spectra: 1
+### max_n_conformers: 1
+### Source real-5mer-D2O: train=0, val=0, test=19, weight=1.0, sigma_data=3.11, max_n_atoms=97
+### Spectra keys used in input generator: ['h_peak_centroid', 'h_peak_nH', 'h_peak_multiplet', 'h_peak_mask', 'c_peak_centroid', 'c_peak_mask']
+### len(test_subset): 19
+    forward pass (test):   0%|          | 0/1 [00:00<?, ?it/s]    forward pass (test): 100%|██████████| 1/1 [00:00<00:00,  1.03it/s]    forward pass (test): 100%|██████████| 1/1 [00:01<00:00,  1.32s/it]
+## Preparing data for real-5mer-D2O
+## Data configs:
+### remove_stereo: False
+### condition: H1C13NMRSpectrum
+### known_atoms: True
+### max_n_h1spectra: 1
+### max_n_c13spectra: 1
+### max_n_conformers: 1
+### Source real-5mer-D2O: train=0, val=0, test=20, weight=1.0, sigma_data=3.09, max_n_atoms=97
+### Spectra keys used in input generator: ['h_peak_centroid', 'h_peak_nH', 'h_peak_multiplet', 'h_peak_mask', 'c_peak_centroid', 'c_peak_mask']
+### len(test_subset): 20
+    forward pass (test):   0%|          | 0/1 [00:00<?, ?it/s]    forward pass (test): 100%|██████████| 1/1 [00:00<00:00,  1.02it/s]    forward pass (test): 100%|██████████| 1/1 [00:01<00:00,  1.45s/it]
+/home/jc4587/.conda/envs/nmr3d/lib/python3.11/site-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/home/jc4587/.conda/envs/nmr3d/lib/python3.11/site-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+### real-5mer-dmso_vs_syn-5mer ###
+## Preparing data for real-5mer-DMSO
+## Data configs:
+### remove_stereo: False
+### condition: H1C13NMRSpectrum
+### known_atoms: True
+### max_n_h1spectra: 1
+### max_n_c13spectra: 1
+### max_n_conformers: 1
+### Source real-5mer-DMSO: train=0, val=0, test=19, weight=1.0, sigma_data=3.12, max_n_atoms=97
+### Spectra keys used in input generator: ['h_peak_centroid', 'h_peak_nH', 'h_peak_multiplet', 'h_peak_mask', 'c_peak_centroid', 'c_peak_mask']
+### len(test_subset): 19
+    forward pass (test):   0%|          | 0/1 [00:00<?, ?it/s]    forward pass (test): 100%|██████████| 1/1 [00:01<00:00,  1.05s/it]    forward pass (test): 100%|██████████| 1/1 [00:01<00:00,  1.58s/it]
+## Preparing data for real-5mer-D2O
+## Data configs:
+### remove_stereo: False
+### condition: H1C13NMRSpectrum
+### known_atoms: True
+### max_n_h1spectra: 1
+### max_n_c13spectra: 1
+### max_n_conformers: 1
+### Source real-5mer-D2O: train=0, val=0, test=20, weight=1.0, sigma_data=3.09, max_n_atoms=97
+### Spectra keys used in input generator: ['h_peak_centroid', 'h_peak_nH', 'h_peak_multiplet', 'h_peak_mask', 'c_peak_centroid', 'c_peak_mask']
+### len(test_subset): 20
+    forward pass (test):   0%|          | 0/1 [00:00<?, ?it/s]    forward pass (test): 100%|██████████| 1/1 [00:01<00:00,  1.10s/it]    forward pass (test): 100%|██████████| 1/1 [00:01<00:00,  1.52s/it]
+/home/jc4587/.conda/envs/nmr3d/lib/python3.11/site-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/home/jc4587/.conda/envs/nmr3d/lib/python3.11/site-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+### real-np-mo_vs_syn-np-mo ###
+## Preparing data for real-np-mo
+## Data configs:
+### remove_stereo: False
+### condition: H1C13NMRSpectrum
+### known_atoms: True
+### max_n_h1spectra: 1
+### max_n_c13spectra: 1
+### max_n_conformers: 1
+### Source real-np-mo: train=0, val=0, test=12, weight=1.0, sigma_data=3.41, max_n_atoms=175
+### Spectra keys used in input generator: ['h_peak_centroid', 'h_peak_nH', 'h_peak_multiplet', 'h_peak_mask', 'c_peak_centroid', 'c_peak_mask']
+### len(test_subset): 12
+    forward pass (test):   0%|          | 0/1 [00:00<?, ?it/s]    forward pass (test): 100%|██████████| 1/1 [00:01<00:00,  1.14s/it]    forward pass (test): 100%|██████████| 1/1 [00:01<00:00,  1.59s/it]
+## Preparing data for real-np-mo
+## Data configs:
+### remove_stereo: False
+### condition: H1C13NMRSpectrum
+### known_atoms: True
+### max_n_h1spectra: 1
+### max_n_c13spectra: 1
+### max_n_conformers: 1
+### Source real-np-mo: train=0, val=0, test=25, weight=1.0, sigma_data=3.41, max_n_atoms=151
+### Spectra keys used in input generator: ['h_peak_centroid', 'h_peak_nH', 'h_peak_multiplet', 'h_peak_mask', 'c_peak_centroid', 'c_peak_mask']
+### len(test_subset): 25
+    forward pass (test):   0%|          | 0/1 [00:00<?, ?it/s]    forward pass (test): 100%|██████████| 1/1 [00:01<00:00,  1.23s/it]    forward pass (test): 100%|██████████| 1/1 [00:01<00:00,  1.73s/it]
+/home/jc4587/.conda/envs/nmr3d/lib/python3.11/site-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/home/jc4587/.conda/envs/nmr3d/lib/python3.11/site-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+### real-npmrd-hq_vs_syn-npmrd-hq ###
+## Preparing data for real-npmrd-hq
+## Data configs:
+### remove_stereo: False
+### condition: H1C13NMRSpectrum
+### known_atoms: True
+### max_n_h1spectra: 1
+### max_n_c13spectra: 1
+### max_n_conformers: 1
+### Source real-npmrd-hq: train=0, val=0, test=193, weight=1.0, sigma_data=2.09, max_n_atoms=116
+### Spectra keys used in input generator: ['h_peak_centroid', 'h_peak_nH', 'h_peak_multiplet', 'h_peak_mask', 'c_peak_centroid', 'c_peak_mask']
+### len(test_subset): 193
+    forward pass (test):   0%|          | 0/2 [00:00<?, ?it/s]    forward pass (test):  50%|█████     | 1/2 [00:02<00:02,  2.47s/it]    forward pass (test): 100%|██████████| 2/2 [00:03<00:00,  1.52s/it]
+## Preparing data for real-npmrd-hq
+## Data configs:
+### remove_stereo: False
+### condition: H1C13NMRSpectrum
+### known_atoms: True
+### max_n_h1spectra: 1
+### max_n_c13spectra: 1
+### max_n_conformers: 1
+### Source real-npmrd-hq: train=0, val=0, test=545, weight=1.0, sigma_data=2.13, max_n_atoms=121
+### Spectra keys used in input generator: ['h_peak_centroid', 'h_peak_nH', 'h_peak_multiplet', 'h_peak_mask', 'c_peak_centroid', 'c_peak_mask']
+### len(test_subset): 545
+    forward pass (test):   0%|          | 0/5 [00:00<?, ?it/s]    forward pass (test):  20%|██        | 1/5 [00:02<00:09,  2.36s/it]    forward pass (test):  60%|██████    | 3/5 [00:02<00:01,  1.53it/s]    forward pass (test): 100%|██████████| 5/5 [00:03<00:00,  1.61it/s]
+/home/jc4587/.conda/envs/nmr3d/lib/python3.11/site-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/home/jc4587/.conda/envs/nmr3d/lib/python3.11/site-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+### real-specteach_vs_syn-specteach ###
+## Preparing data for real-specteach
+## Data configs:
+### remove_stereo: False
+### condition: H1C13NMRSpectrum
+### known_atoms: True
+### max_n_h1spectra: 1
+### max_n_c13spectra: 1
+### max_n_conformers: 1
+### Source real-specteach: train=0, val=0, test=219, weight=1.0, sigma_data=1.73, max_n_atoms=59
+### Spectra keys used in input generator: ['h_peak_centroid', 'h_peak_nH', 'h_peak_multiplet', 'h_peak_mask', 'c_peak_centroid', 'c_peak_mask']
+### len(test_subset): 219
+    forward pass (test):   0%|          | 0/2 [00:00<?, ?it/s]    forward pass (test):  50%|█████     | 1/2 [00:01<00:01,  1.93s/it]    forward pass (test): 100%|██████████| 2/2 [00:02<00:00,  1.30s/it]
+## Preparing data for real-specteach
+## Data configs:
+### remove_stereo: False
+### condition: H1C13NMRSpectrum
+### known_atoms: True
+### max_n_h1spectra: 1
+### max_n_c13spectra: 1
+### max_n_conformers: 1
+### Source real-specteach: train=0, val=0, test=239, weight=1.0, sigma_data=1.73, max_n_atoms=59
+### Spectra keys used in input generator: ['h_peak_centroid', 'h_peak_nH', 'h_peak_multiplet', 'h_peak_mask', 'c_peak_centroid', 'c_peak_mask']
+### len(test_subset): 239
+    forward pass (test):   0%|          | 0/2 [00:00<?, ?it/s]    forward pass (test):  50%|█████     | 1/2 [00:02<00:02,  2.18s/it]    forward pass (test): 100%|██████████| 2/2 [00:02<00:00,  1.41s/it]
+/home/jc4587/.conda/envs/nmr3d/lib/python3.11/site-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/home/jc4587/.conda/envs/nmr3d/lib/python3.11/site-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+✓ Saved 6a_real_v_synthetic_umap/umap_real_vs_synthetic_main.png
+✓ Saved 6a_real_v_synthetic_umap/inset_real-fda-cdcl3_vs_syn-fda.png
+✓ Saved 6a_real_v_synthetic_umap/inset_real-fda-dmso_vs_syn-fda.png
+✓ Saved 6a_real_v_synthetic_umap/inset_real-5mer-d2o_vs_syn-5mer.png
+✓ Saved 6a_real_v_synthetic_umap/inset_real-5mer-dmso_vs_syn-5mer.png
+✓ Saved 6a_real_v_synthetic_umap/inset_real-np-mo_vs_syn-np-mo.png
+✓ Saved 6a_real_v_synthetic_umap/inset_real-npmrd-hq_vs_syn-npmrd-hq.png
+✓ Saved 6a_real_v_synthetic_umap/inset_real-specteach_vs_syn-specteach.png
+✓ Saved 6a_real_v_synthetic_umap/real_vs_synthetic_umap_summary.txt
+
+Done.
