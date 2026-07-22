@@ -1,0 +1,105 @@
+Train / val / test distribution shift report
+========================================================================
+
+Groups: pooled 'cotrain' (all requested datasets combined) plus each individual source dataset.
+domain-gap ratio = mean(NN dist from split to train) / mean(NN dist within train itself); values near 1 indicate the split sits on the train manifold, values >> 1 indicate a shift.
+
+--- cotrain (pooled) ---
+  [train vs. val]
+    high-dim embedding centroid shift        : 0.1092 (normalized by train std-norm: 0.0312)
+    2D UMAP centroid shift                   : 0.5960
+    mean NN dist, val->train (n=2,000) : 0.5657
+    mean NN dist, train->train (n=20,000)       : 0.5775
+    domain-gap ratio (val->train / train->train): 0.979 (>1 means val sits further from the train manifold than train points sit from each other)
+    KS test [MolWt] train vs val: D=0.0074, p=2.74e-05
+    KS test [LogP] train vs val: D=0.0147, p=1.09e-19
+    KS test [TPSA] train vs val: D=0.0154, p=1.38e-21
+    KS test [RingCount] train vs val: D=0.0111, p=2.26e-11
+    KS test [Aromaticity] train vs val: D=0.0075, p=2.13e-05
+
+  [train vs. test]
+    high-dim embedding centroid shift        : 0.3120 (normalized by train std-norm: 0.0890)
+    2D UMAP centroid shift                   : 0.1713
+    mean NN dist, test->train (n=2,000) : 0.5681
+    mean NN dist, train->train (n=20,000)       : 0.5775
+    domain-gap ratio (test->train / train->train): 0.984 (>1 means test sits further from the train manifold than train points sit from each other)
+    KS test [MolWt] train vs test: D=0.0445, p=1.15e-296
+    KS test [LogP] train vs test: D=0.0164, p=1.54e-40
+    KS test [TPSA] train vs test: D=0.0455, p=1.14e-310
+    KS test [RingCount] train vs test: D=0.0328, p=1.88e-161
+    KS test [Aromaticity] train vs test: D=0.0578, p=0
+
+--- nmrexp ---
+  [train vs. val]
+    high-dim embedding centroid shift        : 0.2340 (normalized by train std-norm: 0.0824)
+    2D UMAP centroid shift                   : 1.2123
+    mean NN dist, val->train (n=2,000) : 0.5395
+    mean NN dist, train->train (n=20,000)       : 0.5565
+    domain-gap ratio (val->train / train->train): 0.969 (>1 means val sits further from the train manifold than train points sit from each other)
+    KS test [MolWt] train vs val: D=0.0050, p=0.309
+    KS test [LogP] train vs val: D=0.0136, p=2.41e-06
+    KS test [TPSA] train vs val: D=0.0167, p=2.7e-09
+    KS test [RingCount] train vs val: D=0.0129, p=9.56e-06
+    KS test [Aromaticity] train vs val: D=0.0099, p=0.00153
+
+  [train vs. test]
+    high-dim embedding centroid shift        : 0.2426 (normalized by train std-norm: 0.0855)
+    2D UMAP centroid shift                   : 1.2079
+    mean NN dist, test->train (n=2,000) : 0.5325
+    mean NN dist, train->train (n=20,000)       : 0.5565
+    domain-gap ratio (test->train / train->train): 0.957 (>1 means test sits further from the train manifold than train points sit from each other)
+    KS test [MolWt] train vs test: D=0.0065, p=0.00501
+    KS test [LogP] train vs test: D=0.0118, p=5.92e-09
+    KS test [TPSA] train vs test: D=0.0126, p=4.04e-10
+    KS test [RingCount] train vs test: D=0.0144, p=4.49e-13
+    KS test [Aromaticity] train vs test: D=0.0128, p=1.56e-10
+
+--- spectranp ---
+  [train vs. val]
+    high-dim embedding centroid shift        : 0.2741 (normalized by train std-norm: 0.0733)
+    2D UMAP centroid shift                   : 0.3205
+    mean NN dist, val->train (n=2,000) : 0.5216
+    mean NN dist, train->train (n=20,000)       : 0.5067
+    domain-gap ratio (val->train / train->train): 1.029 (>1 means val sits further from the train manifold than train points sit from each other)
+    KS test [MolWt] train vs val: D=0.0323, p=9.38e-31
+    KS test [LogP] train vs val: D=0.0259, p=6.64e-20
+    KS test [TPSA] train vs val: D=0.0224, p=5.42e-15
+    KS test [RingCount] train vs val: D=0.0191, p=5.44e-11
+    KS test [Aromaticity] train vs val: D=0.0160, p=6.7e-08
+
+  [train vs. test]
+    high-dim embedding centroid shift        : 0.2952 (normalized by train std-norm: 0.0789)
+    2D UMAP centroid shift                   : 0.3975
+    mean NN dist, test->train (n=2,000) : 0.5179
+    mean NN dist, train->train (n=20,000)       : 0.5067
+    domain-gap ratio (test->train / train->train): 1.022 (>1 means test sits further from the train manifold than train points sit from each other)
+    KS test [MolWt] train vs test: D=0.0435, p=1.89e-55
+    KS test [LogP] train vs test: D=0.0239, p=5.83e-17
+    KS test [TPSA] train vs test: D=0.0292, p=3.89e-25
+    KS test [RingCount] train vs test: D=0.0274, p=3.39e-22
+    KS test [Aromaticity] train vs test: D=0.0180, p=7.81e-10
+
+--- uspto ---
+  [train vs. val]
+    high-dim embedding centroid shift        : 0.0095 (normalized by train std-norm: 0.0030)
+    2D UMAP centroid shift                   : 0.0136
+    mean NN dist, val->train (n=2,000) : 0.5299
+    mean NN dist, train->train (n=20,000)       : 0.5276
+    domain-gap ratio (val->train / train->train): 1.004 (>1 means val sits further from the train manifold than train points sit from each other)
+    KS test [MolWt] train vs val: D=0.0035, p=0.814
+    KS test [LogP] train vs val: D=0.0035, p=0.825
+    KS test [TPSA] train vs val: D=0.0034, p=0.845
+    KS test [RingCount] train vs val: D=0.0011, p=1
+    KS test [Aromaticity] train vs val: D=0.0055, p=0.276
+
+  [train vs. test]
+    high-dim embedding centroid shift        : 0.0142 (normalized by train std-norm: 0.0044)
+    2D UMAP centroid shift                   : 0.0266
+    mean NN dist, test->train (n=2,000) : 0.5251
+    mean NN dist, train->train (n=20,000)       : 0.5276
+    domain-gap ratio (test->train / train->train): 0.995 (>1 means test sits further from the train manifold than train points sit from each other)
+    KS test [MolWt] train vs test: D=0.0049, p=0.0804
+    KS test [LogP] train vs test: D=0.0017, p=0.991
+    KS test [TPSA] train vs test: D=0.0033, p=0.447
+    KS test [RingCount] train vs test: D=0.0011, p=1
+    KS test [Aromaticity] train vs test: D=0.0035, p=0.391

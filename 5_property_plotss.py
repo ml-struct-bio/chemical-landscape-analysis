@@ -22,13 +22,7 @@ in one consistent 2D space), then:
 
 Usage
 -----
-    python umap_splits_and_properties.py \\
-        --data-dir /scratch/gpfs/ZHONGE/jc4587/nmr_embs_cotrain \\
-        --prefix cotrain \\
-        --out-dir umap_splits_summary \\
-        --property-datasets spectranp nmrexp uspto \\
-        --property-splits train \\
-        --cmap viridis
+python 5_property_plotss.py --data-dir /scratch/gpfs/ZHONGE/jc4587/nmr_embs_cotrain --prefix cotrain --out-dir 5_property_plotss --property-datasets spectranp nmrexp uspto --property-splits train --cmap Blues
 """
 
 from __future__ import annotations
@@ -373,7 +367,7 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
     # UMAP
     p.add_argument("--umap-n-neighbors", type=int, default=30)
     p.add_argument("--umap-min-dist", type=float, default=0.1)
-    p.add_argument("--umap-metric", type=str, default="cosine")
+    p.add_argument("--umap-metric", type=str, default="euclidean")
     p.add_argument("--save-umap-model", type=Path, default=None,
                    help="Pickle the fitted UMAP reducer here for reuse.")
     p.add_argument("--load-umap-model", type=Path, default=None,

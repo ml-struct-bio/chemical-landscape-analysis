@@ -1,0 +1,40 @@
+/home/jc4587/3_AI4chemistr/FINAL/4_pretty_plot.py:110: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  d = torch.load(path, map_location="cpu")
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1784575159.450977 1853952 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1784575159.511785 1853952 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1784575162.462107 1853952 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+/home/jc4587/.conda/envs/nmr3d/lib/python3.11/site-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/home/jc4587/.conda/envs/nmr3d/lib/python3.11/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+OMP: Info #276: omp_set_nested routine deprecated, please use omp_set_max_active_levels instead.
+==============================================================================
+UMAP main figure
+  data dir           : /scratch/gpfs/ZHONGE/jc4587/nmr_embs_FINAL
+  embedding key      : global_cond
+  datasets           : ALL
+  color-by           : dataset
+  highlight clusters : None
+  smiles of interest : None
+==============================================================================
+Loading /scratch/gpfs/ZHONGE/jc4587/nmr_embs_FINAL/cotrain_train_global_cond.pt ...
+Reducing 768 dims -> 50 dims via PCA before UMAP (on 2263104 points) ...
+PCA done. 50 components explain 99.9% of variance.
+Fitting UMAP (n_neighbors=30, min_dist=0.1, metric=euclidean) on 2263104 points ...
+Traceback (most recent call last):
+  File "/home/jc4587/3_AI4chemistr/FINAL/4_pretty_plot.py", line 774, in <module>
+    main()
+  File "/home/jc4587/3_AI4chemistr/FINAL/4_pretty_plot.py", line 730, in main
+    emb2d = load_or_compute_umap(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jc4587/3_AI4chemistr/FINAL/4_pretty_plot.py", line 222, in load_or_compute_umap
+    np.save(save_path, emb2d)
+  File "/home/jc4587/.conda/envs/nmr3d/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py", line 581, in save
+    format.write_array(fid, arr, allow_pickle=allow_pickle,
+  File "/home/jc4587/.conda/envs/nmr3d/lib/python3.11/site-packages/numpy/lib/format.py", line 754, in write_array
+    array.tofile(fp)
+OSError: 4526208 requested and 0 written
+object refcount : 2

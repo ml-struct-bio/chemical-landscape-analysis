@@ -1,0 +1,15 @@
+{
+  "data_dir": "/scratch/gpfs/ZHONGE/jc4587/nmr_embs_FINAL",
+  "prefix": "cotrain",
+  "splits": [
+    "train"
+  ],
+  "embedding_key": "global_cond",
+  "datasets": null,
+  "color_by": "dataset",
+  "highlight_clusters": null,
+  "smiles_of_interest": null,
+  "n_molecules_plotted": 2263104,
+  "window_size": 2.5,
+  "regions": []
+}
