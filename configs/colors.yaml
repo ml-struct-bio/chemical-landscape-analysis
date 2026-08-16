@@ -1,0 +1,56 @@
+# Pipeline-wide categorical colors.
+#
+# Read by default (when present) by every script that draws a categorical
+# scatter: 05, 06, and (once ported) 5, 6, 7, 8, 14, 15. Because all of them
+# resolve through src/common/palette.py, a label named here keeps the SAME
+# color in every figure -- which was not true before, when scripts 5/6 and 7
+# each assigned tab10 by sorted index independently.
+#
+# Any matplotlib color works: '#1f77b4', 'teal', '0.75'.
+# Every entry is optional. Labels you leave out get an automatic color chosen
+# to avoid the hues you did name, so your choices never collide with a fallback.
+# Naming a label that is not in the data is an ERROR, with the valid labels
+# listed -- a palette that silently does nothing yields a plausible, wrong figure.
+#
+# Override any single entry for one run from the CLI, e.g.
+#   --dataset-colors uspto=grey
+#   --highlight-clusters 0 3988 31 --cluster-colors '#e6194b' '#4363d8' '#3cb44b'
+
+# Source datasets of the cotrain-v3 mixture (scripts 05, 06, and once ported,
+# 5, 6, 7). Labels are lowercase because that is how they are stored in
+# extraction's `dataset` column (NMRExp / USPTO / SpectraNP are display names
+# only).
+dataset:
+  nmrexp: '#4C8DAE'      # NMRExp -- experimental NMR (blue)
+  uspto: '#69A69D'       # USPTO -- patent-derived (teal)
+  spectranp: '#A05A9C'   # SpectraNP -- natural products (magenta-purple)
+
+# Butina clusters, keyed by cluster id (scripts 5, 6).
+#
+# Keyed by id rather than by highlight position so a cluster keeps its color
+# regardless of the order you pass --highlight-clusters. NOTE that Butina
+# renumbers clusters on every re-run, so these ids are only meaningful for the
+# clustering they came from; re-cluster and you will want to revisit them.
+#
+# The three largest clusters of the current cotrain-v3 clustering:
+cluster:
+  0: '#e6194b'      # 3,141 molecules
+  3988: '#4363d8'   # 2,867 molecules
+  31: '#3cb44b'     # 2,720 molecules
+
+# real vs. synthetic split (scripts 5, 6, 8).
+sim_real:
+  real: '#1f77b4'
+  synthetic: '#ff7f0e'
+
+# NPClassifier categories (scripts 5, 6). Add entries as needed; the top-N
+# classes are chosen by frequency at run time, so which labels appear depends
+# on --np-class-top-n.
+np_class: {}
+
+# Named entities in the anchor/pair scatters: dataset specs (15), anchor
+# natural products (14), real/synthetic pairs (8).
+anchor: {}
+
+# Everything not highlighted, and the 'Other' bucket.
+other: '#bfbfbf'

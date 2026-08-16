@@ -1,0 +1,16 @@
+# Derived output. All three are reproducible from the scripts + manifests, so
+# none of them belong in git.
+data/
+figures/
+cache/
+
+# Model-training repo, checked out locally as the --nmr3d-root dependency.
+nmr-to-3d
+
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# SLURM job output, written next to the .slurm files.
+*.out
+*.err
